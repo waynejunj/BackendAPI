@@ -18,9 +18,9 @@ app = Flask(__name__)
 # CLOUDINARY CONFIGURATION
 # ---------------------------
 cloudinary.config(
-    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
-    api_key=os.environ.get('CLOUDINARY_API_KEY'),
-    api_secret=os.environ.get('CLOUDINARY_API_SECRET'),
+    cloud_name=os.environ.get('dfcm4cstg'),
+    api_key=os.environ.get('783637544216557'),
+    api_secret=os.environ.get('vjrUiGXflw1MZqNzFmSM_Jkmp_Q'),
     secure=True
 )
 
@@ -34,7 +34,10 @@ def signup():
     password = request.form['password']
     phone = request.form['phone']
 
-    connection = pymysql.connect(host='localhost', user='root', password='', database='BackendAPI')
+    connection = pymysql.connect(host='berxhqu0w65dbve1x0kv-mysql.services.clever-cloud.com',
+        user='u8njzekifoc9amwq',
+        password='1WNiDxrCA64SljLTWGaU',
+        database='berxhqu0w65dbve1x0kv')
     cursor = connection.cursor()
     cursor.execute(
         'INSERT INTO users(username,email,password,phone) VALUES (%s,%s,%s,%s)',
@@ -53,7 +56,10 @@ def signin():
     email = request.form['email']
     password = request.form['password']
 
-    connection = pymysql.connect(host='localhost', user='root', password='', database='BackendAPI')
+    connection = pymysql.connect(host='berxhqu0w65dbve1x0kv-mysql.services.clever-cloud.com',
+        user='u8njzekifoc9amwq',
+        password='1WNiDxrCA64SljLTWGaU',
+        database='berxhqu0w65dbve1x0kv')
     cursor = connection.cursor(pymysql.cursors.DictCursor)
     cursor.execute("SELECT * FROM users WHERE email=%s AND password=%s", (email, password))
     user = cursor.fetchone()
@@ -84,7 +90,10 @@ def add_product():
         photo_url = upload_result.get("secure_url")
 
         # Connect to DB
-        connection = pymysql.connect(host='localhost', user='root', password='', database='BackendAPI')
+        connection = pymysql.connect(host='berxhqu0w65dbve1x0kv-mysql.services.clever-cloud.com',
+        user='u8njzekifoc9amwq',
+        password='1WNiDxrCA64SljLTWGaU',
+        database='berxhqu0w65dbve1x0kv')
         cursor = connection.cursor()
         cursor.execute(
             'INSERT INTO product_details (product_name, product_description, product_cost, product_photo) VALUES (%s,%s,%s,%s)',
