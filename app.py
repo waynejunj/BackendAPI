@@ -107,8 +107,8 @@ import pymysql.cursors
 def get_product_details():
 
     # Connect to the database with DictCursor for direct dictionary results
-    connection = pymysql.connect(host='localhost', user='root',
-                                        password='',database='BackendAPI')
+    connection = pymysql.connect(host='berxhqu0w65dbve1x0kv-mysql.services.clever-cloud.com', user='u8njzekifoc9amwq',
+                                        password='1WNiDxrCA64SljLTWGaU',database='berxhqu0w65dbve1x0kv')
 
     # Create a cursor object and fetch all products details from the products_details table
     cursor = connection.cursor(pymysql.cursors.DictCursor)
